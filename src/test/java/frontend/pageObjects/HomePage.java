@@ -27,9 +27,11 @@ public class HomePage {
     By laptopCategory = By.xpath("//a[contains(@onclick,'notebook')]");
     By monitorsCategory = By.xpath("//a[contains(@onclick,'monitor')]");
 
-    By addToCart = By.xpath("//a[contains(@onclick,'addToCart(8)')]");
-    By productName = new By.ByLinkText("Sony vaio i5");
-//    By okConfirmation = new By.ByLinkText("OK");
+    // By addToCart = By.xpath("//a[contains(@onclick,'addToCart(8)')]");
+    // By addToCart = By.cssSelector("#tbodyid > div.row > div > a");
+    By addToCart = By.linkText("Add to cart");
+
+    //    By okConfirmation = new By.ByLinkText("OK");
 
     public void addToCart() {
         driver.findElement(addToCart).click();
@@ -54,13 +56,13 @@ public class HomePage {
 //
     }
     public void openItemPage(String name) {
+        By productName = new By.ByLinkText(name);
+
         try {
             driver.findElement(productName).click();
         } catch (Exception ex){
             driver.findElement(productName).click();
         }
-
-
     }
 
     public void openLaptopPage() {
